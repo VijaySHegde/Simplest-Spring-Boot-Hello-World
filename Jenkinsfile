@@ -34,5 +34,13 @@ pipeline {
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
    }
+	  stage('Run Container on Dev Server'){
+       steps
+       {
+     def dockerRun = 'docker run -p 8090:8090 -d --name my-app vijayshegde/mybootapp:2.0.0'
+     sshagent(['dev-server']) {
+       sh "ssh -o StrictHostKeyChecking=no ec2-user@13.232.40.185 ${dockerRun}"
+     }
+   }
 }
 }
