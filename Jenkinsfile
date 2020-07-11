@@ -14,5 +14,12 @@ pipeline {
                  }
 		 }
             }
+	stage('Build docker image')
+		{
+			steps
+			{
+			sh 'docker build -t vijayshegde/myapp:2.0.0 .'
+		}
+		}
 	  
 	  }
