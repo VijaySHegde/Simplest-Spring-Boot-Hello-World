@@ -22,7 +22,7 @@ pipeline {
 		}
 		}
 	  
-	  }
+	 
 	
 	
 	stage('Push Docker Image'){
@@ -34,4 +34,5 @@ pipeline {
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
    }
+}
 }
