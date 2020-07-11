@@ -37,7 +37,7 @@ pipeline {
 	  stage('Run Container on Dev Server'){
        steps
        {
-     sh ''' dockerRun = 'docker run -p 8090:8090 -d --name myspringapp vijayshegde/mybootapp:2.0.0 '''
+     sh 'docker run -p 8090:8090 -d --name myspringapp vijayshegde/mybootapp:2.0.0'
      /* sshagent(['dev-server']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.232.40.185 ${dockerRun}"
      } */
