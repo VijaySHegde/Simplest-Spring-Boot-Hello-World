@@ -18,7 +18,7 @@ pipeline {
 		{
 			steps
 			{
-			sh 'docker build -t vijayshegde/myapp:2.0.0 .'
+			sh 'docker build -t vijayshegde/mybootapp:2.0.0 .'
 		}
 		}
 	  
