@@ -29,8 +29,9 @@ pipeline {
        steps
        {
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-        sh 'docker login -u vijayshegde --password-stdin'
-	     /* -p ${dockerHubPwd} */
+        sh "docker login -u vijayshegde -p ${dockerHubPwd}"
+	     /* 
+	     --password-stdin*/
      }
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
