@@ -1,3 +1,14 @@
-FROM tomcat:9
+#FROM tomcat:9
 # Take the war and copy to webapps of tomcat
-COPY target/*.war /usr/local/tomcat/webapps/
+#COPY target/*.war /usr/local/tomcat/webapps/
+
+
+FROM tomcat:8.0-alpine
+
+LABEL maintainer="hegdevijay118@gmail.com"
+
+ADD target/*.war /usr/local/tomcat/webapps/
+
+EXPOSE 8091
+
+CMD ["catalina.sh", "run"]
