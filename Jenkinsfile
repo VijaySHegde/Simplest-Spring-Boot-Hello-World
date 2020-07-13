@@ -29,7 +29,8 @@ pipeline {
        steps
        {
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
-        sh "docker login -u vijayshegde -p ${dockerHubPwd}"
+        sh 'docker login -u vijayshegde --password-stdin'
+	     /* -p ${dockerHubPwd} */
      }
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
@@ -37,7 +38,7 @@ pipeline {
 	  stage('Run Container on Dev Server'){
        steps
        {
-     sh 'docker run -p 8093:8080 -d --name tooom vijayshegde/mybootapp:2.0.0'
+     sh 'docker run -p 8091:8080 -d --name newTom vijayshegde/mybootapp:2.0.0'
      /* sshagent(['dev-server']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.232.40.185 ${dockerRun}"
      } */
